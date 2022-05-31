@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-style: italic;
+    font-weight: bold;
+  }
+
+  :root {
+    --primary-color:rgb(220, 230, 243);
+    --secondary-color: rgb(131, 198, 236);
+    --tertiary-color: rgb(255, 255, 255);
+    --the-forth-color: rgb(82, 112, 156);
+    --shadow: rgba(0, 0, 0, 0.5);
+  }
+
+  html,body {
+      width: 100%;
+      height: 100%;
+      margin: 0px;
+      padding: 0px;
+      background-color: var(--primary-color);
+  }
+
+
+  .title {
+    font-weight: bold;
+    font-size: 60px;
+    color: var(--tertiary-color);
+    margin: 100;
+    text-shadow: 0 0 10px var(--shadow);
+  }
+
+  .box {
+    border: 3px solid var(--secondary-color);
+    background-color: var(--the-forth-color);
+    color: var(--tertiary-color);
+    box-shadow: 0 0 10px var(--shadow);
+    border-radius: 15px;
+  }
+
+  #teams {
+    border: 3px solid var(--secondary-color);
+    background-color: var(--tertiary-color);
+    color: var(--shadow);
+    box-shadow: 0 0 10px var(--shadow);
+    border-radius: 5px;
+  } 
+
+  .navbar {
+    font-size: 15px;
+    margin: 0;
+    border-radius: 5px;
+    border: 3px solid var(--secondary-color);
+    box-shadow: 0 0 10px var(--shadow);
+  }
+
+  .navbar a:hover {
+    text-shadow: var(--shadow);
+    border-radius: 15px;
+  }
+
+  .navbar-item {
+    font-style: italic;
+    font-weight: bold;
+  }
+
+  .navbar-start {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .navbar-item mr-6 {
+    display: flex;
+    flex-wrap: wrap;
+    object-position: left;
+  }
+
+  .navbar-item ml-6 {
+    display: flex;
+    flex-wrap: wrap;
+    object-position: left;
+  }
+
+  img {
+    vertical-align: middle;
+  }
+
+  .current-weather-container p {
+    font-weight: bold;
+    text-shadow: 0 0 10px var(--shadow);
+  }
+
+  .current {
+    font-weight: normal;
+  }
+
+  .card {
+    background-color: var(--tertiary-color);
+  }
+
+  .table-wrapper {
+  overflow-x: auto;
+  border: 3px solid var(--secondary-color);
+  background-color: var(--tertiary-color);
+  color: var(--shadow);
+  box-shadow: 0 0 10px var(--shadow);
+  border-radius: 5px;
+  text-shadow: 0 0 10px var(--shadow);
+}
+
+.table {
+  width: 100%;
+}
+
+.control {
+  box-shadow: 0 0 10px var(--shadow);
+}
+
+.input {
+  border: 3px solid var(--secondary-color);
+} 
