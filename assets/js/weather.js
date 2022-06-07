@@ -8,7 +8,7 @@ var currentWindSpeed = $("#wind-speed");
 var currentUvindex = $("#uv-index");
 
 //API key
-var APIKey = "a0aca8a89948154a4182dcecc780b513";
+var APIKey = "14a4c90d0510783f77b159bd26a8a101";
 
 // Display the current and future weather based on search box input
 function displayWeather(event) {
@@ -34,20 +34,19 @@ function currentWeather(city) {
       "https://openweathermap.org/img/wn/" + weathericon + "@2x.png";
     // The date format method is taken from the  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
     new Date(response.dt * 1000).toLocaleDateString();
-    //parse the response for name of city and concanatig the date and icon.
+    
     $(currentCity).html(response.name + "<img src=" + iconurl + ">");
-    // parse the response to display the current temperature.
-    // Convert the temp to fahrenheit
+    // current temperature in fahrenheit
 
     var tempF = (response.main.temp - 273.15) * 1.8 + 32;
     $(currentTemperature).html(tempF.toFixed(0) + "&#8457");
-    // Display the Humidity
+    // Humidity
     $(currentHumidty).html(response.main.humidity + "%");
-    //Display Wind speed and convert to MPH
+    // Wind speed in MPH
     var ws = response.wind.speed;
     var windsmph = (ws * 2.237).toFixed(1);
     $(currentWindSpeed).html(windsmph + "MPH");
-    // Display UVIndex.
+    // UVIndex.
     UVIndex(response.coord.lon, response.coord.lat);
     forecast(response.id);
     if (response.cod == 200) {
@@ -80,7 +79,7 @@ function UVIndex(ln, lt) {
   });
 }
 
-//display the 5 days forecast for the current city.
+// 5 days forecast 
 function forecast(cityid) {
   var queryforcastURL =
     "https://api.openweathermap.org/data/2.5/forecast?id=" +
@@ -108,5 +107,5 @@ function forecast(cityid) {
     }
   });
 }
-//Click Handlers
+
 $("#search-button").on("click", displayWeather);
