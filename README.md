@@ -1,18 +1,18 @@
-##14. Server-Side APIs Challenge: Weather Dashboard
+14. Server-Side APIs Challenge: Weather Dashboard
 
-#Description
+- Description
 
 assignment 6. was built off of group project 1 to meet the requirements of this assignment.(project 1 will be linked in the repository section)
 
-#Credit
+- Credit
 
 Angelo Saverino
 
-#Website
+- Website
 
 https://ang543.github.io/weather-dashboard/
 
-#Repository
+- Repository
 
 https://github.com/Ang543/weather-dashboard.git 
 
