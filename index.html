@@ -1,126 +1,116 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Weather Dashboard</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="./assets/css/style.css"
-    />
-  </head>
-  <body>
-    <div class="container">
-      <!--Heading-->
-      <section class="hero">
-        <div class="hero-body">
-          <p class="title" style="text-align: center">
-            Weather Dashboard</p>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Weather Dashboard</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <section class="hero">
+      <div class="hero-body">
+        <p class="title" style="text-align: center">
+          Weather Dashboard</p>
+      </div>
+    </section>
+
+    <!--Search input box -->
+    <div class="columns">
+      <div class="column is-4">
+        <div class="box">
+          <h2 class="title is-3">Search City</h2>
+          <div class="field has-addons">
+            <div class="control">
+              <input id="search-city" class="input" type="text" placeholder="Enter City" />
+            </div>
+
+            <div class="control" id="search">
+              <button class="button is-success">Search</button>
+            </div>
           </div>
-      </section>
-     
- <!--Search input box -->
- <div class="columns">
-  <div class="column is-4">
-    <div class="box">
-      <h2 class="title is-3">Search City</h2>
-      <div class="field has-addons">
-        <div class="control">
-          <input
-            id="search-city"
-            class="input"
-            type="text"
-            placeholder="Enter City"
-          />
         </div>
-        <div class="control" id="search">
-          <button class="button is-success">Search</button>
+      </div>
+
+      <div class="column is-8">
+        <div class="box">
+          <h2 class="title is-2" style="text-align: center">Today's Forecast</h2>
+          <h3 id="current-city" class="title is-3" style="text-align: center">
+          </h3>
+          <div id="current-weather" class="weather-container">
+            <p>Temperature: <span class="current" id="temperature"></p>
+            <p>Humidity: <span class="current" id="humidity"></p>
+            <p>Wind Speed: <span class="current" id="wind-speed"></p>
+            <p>UV index:
+              <span class="current" id="uv-index">
+              </span>
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-    
-        
-        <div class="column is-8">
-          <div class="box">
-            <h2 class="title is-2" style="text-align: center">Today's Forecast</h2>
-            <h3 id="current-city" class="title is-3" style="text-align: center">
-            </h3>
-            <div id="current-weather" class="weather-container">
-              <p>Temperature: <span class="current" id="temperature"></p>
-              <p>Humidity: <span class="current" id="humidity"></p>
-              <p>Wind Speed: <span class="current" id="wind-speed"></p>
-              <p>
-                UV index: <span
-                  class="current"
-                  id="uv-index"
-                ></span>
-              </p>
+
+    <div class="columns">
+      <div class="column is-12">
+        <div class="box">
+          <h2 class="title is-3" style="text-align: center;">5-Day Forecast</h2>
+          <div id="forecast" class="forecast-container"></div>
+
+          <!-- 5-day forecast container -->
+          <div class="columns is-centered">
+            <div class="column is-2">
+              <div class="cards-container">
+                <p id="5DDate0" class="card-header-title">
+                <p id="5DImg0" class="card-header-title"></p>
+                <p><span id="5DTemp0"></span></p>
+                <p><span id="5DHumidity0"></span></p>
+              </div>
+            </div>
+
+            <!-- 5-day forecast -->
+            <div class="column is-2">
+              <div class="cards-container">
+                <p id="5DDate1" class="card-header-title">
+                <p id="5DImg1" class="card-header-title">
+                <p><span id="5DTemp1"></span></p>
+                <p><span id="5DHumidity1"></span></p>
+              </div>
+            </div>
+
+            <div class="column is-2">
+              <div class="cards-container">
+                <p id="5DDate2" class="card-header-title">
+                <p id="5DImg2" class="card-header-title">
+                <p><span id="5DTemp2"></span></p>
+                <p><span id="5DHumidity2"></span></p>
+              </div>
+            </div>
+            <div class="column is-2">
+              <div class="cards-container">
+                <p id="5DDate3" class="card-header-title">
+                <p id="5DImg3" class="card-header-title">
+                <p><span id="5DTemp3"></span></p>
+                <p><span id="5DHumidity3"></span></p>
+              </div>
+            </div>
+            <div class="column is-2">
+              <div class="cards-container">
+                <p id="5DDate4" class="card-header-title">
+                <p id="5DImg4" class="card-header-title">
+                <p><span id="5DTemp4"></span></p>
+                <p><span id="5DHumidity4"></span></p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-      <div class="columns">
-          <div class="column is-12">
-            <div class="box">
-                <h2 class="title is-3" style="text-align: center;">5-Day Forecast</h2>
-                <div id="forecast" class="forecast-container"></div>
-                
-                <!-- 5-day forecast container -->
-        <div class="columns is-centered">
-            <div class="column is-2">
-              <div class="cards-container">
-                <p id="5DDate0" class="card-header-title">
-                  <p id="5DImg0" class="card-header-title"></p>
-                  <p><span id="5DTemp0"></span></p>
-                  <p><span id="5DHumidity0"></span></p>
-            </div>
-          </div>
-
-  <!-- 5-day forecast -->
-  <div class="column is-2">
-    <div class="cards-container">
-      <p id="5DDate1" class="card-header-title">
-        <p id="5DImg1" class="card-header-title">
-        <p><span id="5DTemp1"></span></p>
-        <p><span id="5DHumidity1"></span></p>
-  </div>
-</div>
-<div class="column is-2">
-  <div class="cards-container">
-    <p id="5DDate2" class="card-header-title">
-      <p id="5DImg2" class="card-header-title">
-      <p><span id="5DTemp2"></span></p>
-      <p><span id="5DHumidity2"></span></p>
-</div>
-</div>
-<div class="column is-2">
-  <div class="cards-container">
-    <p id="5DDate3" class="card-header-title">
-      <p id="5DImg3" class="card-header-title">
-      <p><span id="5DTemp3"></span></p>
-      <p><span id="5DHumidity3"></span></p>
-</div>
-</div>
-<div class="column is-2">
-  <div class="cards-container">
-    <p id="5DDate4" class="card-header-title">
-      <p id="5DImg4" class="card-header-title">
-      <p><span id="5DTemp4"></span></p>
-      <p><span id="5DHumidity4"></span></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+    </div>
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="./assets/js/weather.js"></script>
 
-  </body>
+</body>
+
 </html>
