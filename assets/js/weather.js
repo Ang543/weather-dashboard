@@ -97,14 +97,15 @@ function forecast(cityid) {
       ).toLocaleDateString();
       var iconcode = response.list[(i + 1) * 8 - 1].weather[0].icon;
       var iconurl = "https://openweathermap.org/img/wn/" + iconcode + ".png";
-      var tempK = response.list[(i + 1) * 8 - 1].main.temp;
-      var tempF = ((tempK - 273.5) * 1.8 + 32).toFixed(0);
+      var tempatureKelvin = response.list[(i + 1) * 8 - 1].main.temp;
+      var tempatureFahrenheit = ((tempatureKelvin - 273.5) * 1.8 + 32).toFixed(0);
       var humidity = response.list[(i + 1) * 8 - 1].main.humidity;
       $(".cards-container").addClass("card");
-      $("#fDate" + i).html(date);
-      $("#fImg" + i).html("<img src=" + iconurl + ">");
-      $("#fTemp" + i).html("Temp: " + tempF + "&#8457");
-      $("#fHumidity" + i).html("Humidity: " + humidity + "%");
+     
+      $("#5DTemp" + i).html("Temp: " + tempatureFahrenheit + "&#8457");
+      $("#5DDate" + i).html(date);
+      $("#5DHumidity" + i).html("Humidity: " + humidity + "%");
+      $("#5DImg" + i).html("<img src=" + iconurl + ">");
     }
   });
 }
