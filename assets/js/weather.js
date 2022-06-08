@@ -1,16 +1,17 @@
 //global variables
-var searchCity = $("#search-city");
-var searchButton = $("#search-button");
-var currentCity = $("#current-city");
-var currentTemperature = $("#temperature");
+var Temperature = $("#temperature");
 var currentHumidty = $("#humidity");
 var currentWindSpeed = $("#wind-speed");
 var currentUvindex = $("#uv-index");
+var search = $("#search");
+var searchCity = $("#search-city");
+var currentCity = $("#current-city");
+
 
 //API key
 var APIKey = "14a4c90d0510783f77b159bd26a8a101";
 
-// Display the current and future weather based on search box input
+// Current and future weather
 function displayWeather(event) {
   event.preventDefault();
     city = searchCity.val().trim();
@@ -27,19 +28,19 @@ function currentWeather(city) {
     url: queryURL,
     method: "GET",
   }).then(function (response) {
-    // parse the response to display the current weather including the City name. the Date and the weather icon.
+    // Weather, city, date, and weather icon
     console.log(response);
     var weathericon = response.weather[0].icon;
     var iconurl =
       "https://openweathermap.org/img/wn/" + weathericon + "@2x.png";
-    // The date format method is taken from the  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
+   
     new Date(response.dt * 1000).toLocaleDateString();
     
     $(currentCity).html(response.name + "<img src=" + iconurl + ">");
-    // current temperature in fahrenheit
+    // temperature in fahrenheit
 
     var tempF = (response.main.temp - 273.15) * 1.8 + 32;
-    $(currentTemperature).html(tempF.toFixed(0) + "&#8457");
+    $(Temperature).html(tempF.toFixed(0) + "&#8457");
     // Humidity
     $(currentHumidty).html(response.main.humidity + "%");
     // Wind speed in MPH
@@ -108,4 +109,4 @@ function forecast(cityid) {
   });
 }
 
-$("#search-button").on("click", displayWeather);
+$("#search").on("click", displayWeather);
